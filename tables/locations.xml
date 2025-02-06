@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+   
+   <changeSet id="locations_set" author="clark">
+        <createTable tableName="locations">
+             <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+             </column>
+             <column name="address" type="VARCHAR2(40)">
+                <constraints nullable="true"/>
+             </column>
+             <column name="postal_code" type="VARCHAR2(12)">
+                <constraints nullable="true"/>
+             </column>
+             <column name="city" type="VARCHAR2(30)">
+                <constraints nullable="false"/>
+             </column>
+             <column name="state_province" type="VARCHAR2(25)">
+                <constraints nullable="true"/>
+             </column>
+             <column name="country_id" type="CHAR(2)">
+                <constraints nullable="false"/>
+             </column>
+        </createTable>
+   </changeSet>
+   
+</databaseChangeLog>

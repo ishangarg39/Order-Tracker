@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+   
+   <changeSet id="suppliers_set" author="clark">
+   <createTable tableName="suppliers">
+       <column name="id" type="int" autoIncrement="true">
+          <constraints primaryKey="true" nullable="false"/>
+         </column>
+            <column name="name" type="VARCHAR2(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact" type="VARCHAR2(50)">
+                <constraints nullable="true"/>  
+            </column>
+            <column name="location" type="int">
+            <constraints foreignKeyName="fk_location"
+                references="locations(id)" referencedTableName="locations"
+                referencedColumnNames="id" nullable="false"/>
+            </column>
+   </createTable>
+   </changeSet>
+</databaseChangeLog>
